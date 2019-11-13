@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="App1.OrderList" Title="List of Orders">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     Text="Click to Order"
+                     Priority="0"
+                     Clicked="OnItemClicked"/>
+
+    </ContentPage.ToolbarItems>
+<ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected"> 
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label  Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                       
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

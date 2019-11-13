@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="T Shirt App"
+              FontSize="15"
+              FontAttributes="Bold"
+              HorizontalOptions="Center" />
+        <Label Text="Name"/>
+        <Editor Placeholder="Enter Name" Text="{Binding Name}"/>
+
+        <Label Text="Gender"/>
+        <Picker x:Name="Gender" SelectedIndex="{Binding Gender}" HorizontalOptions="FillAndExpand">
+            <Picker.Items>
+                <x:String>Male</x:String>
+                <x:String>Female</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label Text="T-Shirt Size"/>
+        <Picker x:Name="TShirtSize" SelectedItem="{Binding TShirtSize}" HorizontalOptions="FillAndExpand">
+            <Picker.Items>
+                <x:String>Small</x:String>
+                <x:String>Medium</x:String>
+                <x:String>Large</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label Text="T-Shirt Color"/>
+        <Picker x:Name="TShirtColor" SelectedItem="{Binding Color}" HorizontalOptions="FillAndExpand">
+            <Picker.Items>
+                <x:String>Red</x:String>
+                <x:String>Blue</x:String>
+                <x:String>White</x:String>
+            </Picker.Items>
+        </Picker>  
+
+        <Label Text="Shipping Address"/>
+        <Editor Placeholder="Enter Address" Text="{Binding ShippingAddress}"/>
+
+        <Label Text="Date of order"/>
+        <DatePicker Format="D"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="10, 0" Date="{Binding DateOfOrder}" />
+
+        <Button Text="Save" Clicked="OnSaveClicked" />
+        
+        <Button Text="Cancel" Clicked="OnCancelClicked" />
+       
+
+    </StackLayout>
+
+</ContentPage>
