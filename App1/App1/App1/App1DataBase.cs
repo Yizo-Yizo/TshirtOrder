@@ -43,10 +43,6 @@ namespace App1
             }
         }
 
-        public Task<int> DeleteItemAsync(App1Item item)
-        {
-            return database.DeleteAsync(item);
-        }
     }
 }
 
