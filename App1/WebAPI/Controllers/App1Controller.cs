@@ -10,7 +10,7 @@ using WebAPI.Models;
 #region App1Controller
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class App1Controller : ControllerBase
     {
