@@ -6,6 +6,7 @@
                      Text="Click to Order"
                      Priority="0"
                      Clicked="OnItemClicked"/>
+        <ToolbarItem Text="Post" Clicked="OnPost"/>
 
     </ContentPage.ToolbarItems>
 <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected"> 

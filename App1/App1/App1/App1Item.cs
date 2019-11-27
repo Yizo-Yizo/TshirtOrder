@@ -15,5 +15,6 @@ namespace App1
         public DateTime DateOfOrder { get; set; }
         public string Gender { get; set; }
         public string Color { get; set; }
+        public bool 
     }
 }

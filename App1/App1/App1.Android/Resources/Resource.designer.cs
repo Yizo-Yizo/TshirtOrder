@@ -5788,25 +5788,13 @@ namespace App1.Droid
 			public const int notify_panel_notification_icon_bg = 2131165299;
 			
 			// aapt resource value: 0x7F070074
-			public const int Online = 2131165300;
+			public const int post = 2131165300;
 			
 			// aapt resource value: 0x7F070075
-			public const int order = 2131165301;
+			public const int tooltip_frame_dark = 2131165301;
 			
 			// aapt resource value: 0x7F070076
-			public const int orderNow = 2131165302;
-			
-			// aapt resource value: 0x7F070077
-			public const int plus = 2131165303;
-			
-			// aapt resource value: 0x7F070078
-			public const int purchase = 2131165304;
-			
-			// aapt resource value: 0x7F070079
-			public const int tooltip_frame_dark = 2131165305;
-			
-			// aapt resource value: 0x7F07007A
-			public const int tooltip_frame_light = 2131165306;
+			public const int tooltip_frame_light = 2131165302;
 			
 			static Drawable()
 			{
