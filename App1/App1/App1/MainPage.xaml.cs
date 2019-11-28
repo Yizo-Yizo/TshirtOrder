@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace App1
@@ -33,20 +34,46 @@ namespace App1
         {
             var App1Item = (App1Item)BindingContext;
             await App.Database.SaveItemAsync(App1Item);
-            await Navigation.PopAsync();
 
-            var url = "http://10.0.2.2/App1";
-            var client = new HttpClient();
-            var json = JsonConvert.SerializeObject(App1Item);
-            var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+          /*  var la = (la)BindingContext;
+            await App.Database.SaveItemAsync(la);
+
+            var lon = (lon)BindingContext;
+            await App.Database.SaveItemAsync(la); */
+            
+            await Navigation.PopAsync();
 
             try
             {
-                var response = await client.PostAsync(url, content);
+                var request = new GeolocationRequest(GeolocationAccuracy.Medium);
+                var location = await Geolocation.GetLocationAsync(request);
+
+                /*double lon = location.Longitude;
+                double la = location.Latitude;*/
+
+
+
+            }
+            catch (FeatureNotSupportedException ex)
+            {
+                // Handle not supported on device exception
+                await DisplayAlert("Alert", "Device not supported", "OK");
+
+            }
+            catch (FeatureNotEnabledException ex)
+            {
+                // Handle not enabled on device exception
+                await DisplayAlert("Alert", "Not enabled on the device", "OK");
+            }
+            catch (PermissionException ex)
+            {
+                // Handle permission exception
+                await DisplayAlert("Alert", "No Permission", "OK");
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Exception", ex.Message, "OK");
+                // Unable to get location
+                await DisplayAlert("Alert", "Unable to get location", "OK");
             }
 
         }
