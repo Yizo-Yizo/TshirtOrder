@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1.Android", "App1\App1.Android\App1.Android.csproj", "{1E7107EA-BEE4-4F4D-B9C2-D872A8723406}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TshirtApp.Android", "App1\App1.Android\TshirtApp.Android.csproj", "{1E7107EA-BEE4-4F4D-B9C2-D872A8723406}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1.iOS", "App1\App1.iOS\App1.iOS.csproj", "{257004F6-2403-4D7B-ADB3-B86EC30EA2F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TshirtApp.iOS", "App1\App1.iOS\TshirtApp.iOS.csproj", "{257004F6-2403-4D7B-ADB3-B86EC30EA2F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1", "App1\App1\App1.csproj", "{EADC7B1D-0046-4B3C-AC12-4585235E63E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TshirtApp", "App1\App1\TshirtApp.csproj", "{EADC7B1D-0046-4B3C-AC12-4585235E63E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{2608D58E-5D59-44D6-815A-A815BFD3B09A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{2608D58E-5D59-44D6-815A-A815BFD3B09A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

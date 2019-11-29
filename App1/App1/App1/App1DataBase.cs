@@ -13,31 +13,26 @@ namespace App1
         public App1DataBase(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);
-            database.CreateTableAsync<App1Item>().Wait();
+            database.CreateTableAsync<OrderItem>().Wait();
         }
 
-        public Task<List<App1Item>> GetItemsAsync()
+        public Task<List<OrderItem>> GetItemsAsync()
         {
-            return database.Table<App1Item>().ToListAsync();
+            return database.Table<OrderItem>().ToListAsync();
         }
 
-        public async Task<List<App1Item>> GetUnPostedAppItems()
+        public async Task<List<OrderItem>> GetUnPostedAppItems()
         {
-            var unPosted = await database.Table<App1Item>().Where(x => x.Posted == false).ToListAsync();
+            var unPosted = await database.Table<OrderItem>().Where(x => x.Posted == false).ToListAsync();
             return unPosted;
         }
 
-        public Task<List<App1Item>> GetItemsNotDoneAsync()
+        public Task<OrderItem> GetItemAsync(int id)
         {
-            return database.QueryAsync<App1Item>("SELECT * FROM [App1Item] ");
+            return database.Table<OrderItem>().Where(i => i.ID == id).FirstOrDefaultAsync();
         }
 
-        public Task<App1Item> GetItemAsync(int id)
-        {
-            return database.Table<App1Item>().Where(i => i.ID == id).FirstOrDefaultAsync();
-        }
-
-        public Task<int> SaveItemAsync(App1Item item)
+        public Task<int> SaveItemAsync(OrderItem item)
         {
             if (item.ID != 0)
             {

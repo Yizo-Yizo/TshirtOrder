@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace App1
 {
-    public class App1Item
+    public class OrderItem
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using App1;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-namespace App1
+namespace TshirtApp
 {
    
     public partial class MainPage : ContentPage
@@ -24,7 +25,7 @@ namespace App1
         {
             base.OnAppearing();
 
-            var appitem = new App1Item();
+            var appitem = new OrderItem();
 
             BindingContext = appitem;
         }
@@ -32,26 +33,22 @@ namespace App1
 
         async void OnSaveClicked(object sender, EventArgs e)
         {
-            var App1Item = (App1Item)BindingContext;
-            await App.Database.SaveItemAsync(App1Item);
-
-          /*  var la = (la)BindingContext;
-            await App.Database.SaveItemAsync(la);
-
-            var lon = (lon)BindingContext;
-            await App.Database.SaveItemAsync(la); */
-            
-            await Navigation.PopAsync();
+            var App1Item = (OrderItem)BindingContext;
+           // await App.Database.SaveItemAsync(App1Item);
 
             try
             {
                 var request = new GeolocationRequest(GeolocationAccuracy.Medium);
                 var location = await Geolocation.GetLocationAsync(request);
 
-                /*double lon = location.Longitude;
-                double la = location.Latitude;*/
-
-
+                double Latitude = location.Latitude;
+                double Longitude = location.Longitude;
+                if (location != null)
+                {
+                    App1Item.Latitude = Latitude;
+                    App1Item.Longitude = Longitude;
+                    await App.Database.SaveItemAsync(App1Item);
+                }
 
             }
             catch (FeatureNotSupportedException ex)
@@ -75,6 +72,10 @@ namespace App1
                 // Unable to get location
                 await DisplayAlert("Alert", "Unable to get location", "OK");
             }
+
+            await Navigation.PopAsync();
+
+            
 
         }
 

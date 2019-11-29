@@ -4,6 +4,7 @@ using SQLite;
 using System;
 using System.Diagnostics;
 using System.Net.Http;
+using TshirtApp;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -29,32 +30,37 @@ namespace App1
         {
             await Navigation.PushAsync(new MainPage
             {
-                BindingContext = new App1Item()
+                BindingContext = new OrderItem()
             });
             
         }
 
         async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-      
-            if (e.SelectedItem != null)
+
+            /*  if (e.SelectedItem != null)
+              {
+                  await Navigation.PushAsync(new MainPage
+                  {
+                      BindingContext = e.SelectedItem as App1Item
+                  });
+
+              }*/
+
+            var item = e.SelectedItem as OrderItem;
+
+            var placemark = new Placemark
             {
-                await Navigation.PushAsync(new MainPage
-                {
-                    BindingContext = e.SelectedItem as App1Item
-                });
-                
-            }
-         /*   var address = "ShippingAddres";
-            Map.OpenAsync(address, new MapLaunchOptions
-            {
-                Name = EditorPlaceholder.Text,
-                NavigationMode = NavigationMode.None
-            });*/
+                Thoroughfare = item.ShippingAddress
+            };
+            var options = new MapLaunchOptions { Name = item.ShippingAddress };
+
+            await Map.OpenAsync(placemark, options);
         }
 
         async void OnPost(object sender, EventArgs e)
         {
+
             // var App1Item = (App1Item)BindingContext;
 
             var unPostedItems = await App.Database.GetUnPostedAppItems();
@@ -66,7 +72,7 @@ namespace App1
 
             try
             {
-                foreach (var unPosted in unPostedItems)
+                foreach (OrderItem unPosted in unPostedItems)
                 {
 
                     var json = JsonConvert.SerializeObject(unPosted);
@@ -74,6 +80,7 @@ namespace App1
                     var response = await client.PostAsync(url, content);
 
                     unPosted.Posted = true;
+                    
                     await App.Database.SaveItemAsync(unPosted);
                 }
             }
