@@ -4,19 +4,19 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TshirtApp.MainPage" BackgroundImageSource="BackGround.jpg"> 
+             x:Class="TshirtApp.MainPage" BackgroundImageSource="lineArt.jpg"> 
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="T Shirt App"
+        <Label
               FontSize="15"
               FontAttributes="Bold"
               HorizontalOptions="Center"
                TextColor="DarkGreen"/>
-        <Label Text="Name" TextColor="DarkGreen"/>
-        <Editor Placeholder="Enter Name" Text="{Binding Name}" TextColor="DarkGreen"/>
+        <Label Text="Name" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+        <Editor Placeholder="Enter Name" Text="{Binding Name}" />
 
-        <Label Text="Gender" TextColor="DarkGreen"/>
+        <Label Text="Gender" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
         <Picker x:Name="Gender" SelectedIndex="{Binding Gender}" HorizontalOptions="FillAndExpand">
             <Picker.Items>
                 <x:String>Male</x:String>
@@ -24,7 +24,7 @@
             </Picker.Items>
         </Picker>
 
-        <Label Text="T-Shirt Size" TextColor="DarkGreen"/>
+        <Label Text="T-Shirt Size" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
         <Picker x:Name="TShirtSize" SelectedItem="{Binding TShirtSize}" HorizontalOptions="FillAndExpand">
             <Picker.Items>
                 <x:String>Small</x:String>
@@ -33,7 +33,7 @@
             </Picker.Items>
         </Picker>
 
-        <Label Text="T-Shirt Color" TextColor="DarkGreen"/>
+        <Label Text="T-Shirt Color" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
         <Picker x:Name="TShirtColor" SelectedItem="{Binding Color}" HorizontalOptions="FillAndExpand">
             <Picker.Items>
                 <x:String>Red</x:String>
@@ -42,10 +42,10 @@
             </Picker.Items>
         </Picker>
 
-        <Label Text="Shipping Address" TextColor="DarkGreen"/>
+        <Label Text="Shipping Address" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
         <Editor Placeholder="Enter Address" Text="{Binding ShippingAddress}"/>
 
-        <Label Text="Date of order" TextColor="DarkGreen"/>
+        <Label Text="Date of order" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
         <DatePicker Format="D"
                     VerticalOptions="CenterAndExpand"
                     Margin="10, 0" Date="{Binding DateOfOrder}" />

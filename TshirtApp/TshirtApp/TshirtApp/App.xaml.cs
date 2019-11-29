@@ -12,7 +12,7 @@ namespace App1
         public App()
         {
             Resources = new ResourceDictionary();
-            Resources.Add("primaryOrange", Color.FromHex("FF6A00"));
+            Resources.Add("primaryOrange", Color.FromHex("FFA9A9A9"));
             
 
             var nav = new NavigationPage(new OrderList());
