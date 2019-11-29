@@ -45,34 +45,44 @@ namespace App1
                 });
                 
             }
-            var address = "ShippingAddres";
+         /*   var address = "ShippingAddres";
             Map.OpenAsync(address, new MapLaunchOptions
             {
                 Name = EditorPlaceholder.Text,
                 NavigationMode = NavigationMode.None
-            });
+            });*/
         }
 
         async void OnPost(object sender, EventArgs e)
         {
-            var App1Item = (App1Item)BindingContext;
-            var url = "http://10.0.2.2/App1";
-            var client = new HttpClient();
-            var json = JsonConvert.SerializeObject(App1Item);
-            var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+            // var App1Item = (App1Item)BindingContext;
 
-            if (Id is false)
+            var unPostedItems = await App.Database.GetUnPostedAppItems();
+            
+
+            var url = "http://10.0.2.2:5000/App1";
+            var client = new HttpClient();
+
+
+            try
             {
-                try
+                foreach (var unPosted in unPostedItems)
                 {
+
+                    var json = JsonConvert.SerializeObject(unPosted);
+                    var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
                     var response = await client.PostAsync(url, content);
-                }
-                catch (Exception ex)
-                {
-                    await DisplayAlert("Exception", ex.Message, "OK");
+
+                    unPosted.Posted = true;
+                    await App.Database.SaveItemAsync(unPosted);
                 }
             }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Exception", ex.Message, "OK");
 
+
+            }
         }
 
     }

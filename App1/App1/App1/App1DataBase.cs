@@ -21,6 +21,12 @@ namespace App1
             return database.Table<App1Item>().ToListAsync();
         }
 
+        public async Task<List<App1Item>> GetUnPostedAppItems()
+        {
+            var unPosted = await database.Table<App1Item>().Where(x => x.Posted == false).ToListAsync();
+            return unPosted;
+        }
+
         public Task<List<App1Item>> GetItemsNotDoneAsync()
         {
             return database.QueryAsync<App1Item>("SELECT * FROM [App1Item] ");
