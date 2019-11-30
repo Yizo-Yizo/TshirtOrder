@@ -50,9 +50,9 @@
                     VerticalOptions="CenterAndExpand"
                     Margin="10, 0" Date="{Binding DateOfOrder}" />
 
-        <Button Text="Save" Clicked="OnSaveClicked" />
-        
-        <Button Text="Cancel" Clicked="OnCancelClicked" />
+        <Button Text="Save" Clicked="OnSaveClicked" BackgroundColor="Black" TextColor="White" BorderColor="White" BorderWidth="15"/>
+
+        <Button Text="Cancel" Clicked="OnCancelClicked"  BackgroundColor="Black" TextColor="White" BorderColor="White" BorderWidth="15" />
        
 
     </StackLayout>
