@@ -54,23 +54,23 @@ namespace TshirtApp
             catch (FeatureNotSupportedException ex)
             {
                 // Handle not supported on device exception
-                await DisplayAlert("Alert", "Device not supported", "OK");
+                await DisplayAlert("Alert", ex.Message, "OK");
 
             }
             catch (FeatureNotEnabledException ex)
             {
                 // Handle not enabled on device exception
-                await DisplayAlert("Alert", "Not enabled on the device", "OK");
+                await DisplayAlert("Alert", ex.Message, "OK");
             }
             catch (PermissionException ex)
             {
                 // Handle permission exception
-                await DisplayAlert("Alert", "No Permission", "OK");
+                await DisplayAlert("Alert", ex.Message, "OK");
             }
             catch (Exception ex)
             {
                 // Unable to get location
-                await DisplayAlert("Alert", "Unable to get location", "OK");
+                await DisplayAlert("Alert", ex.Message, "OK");
             }
 
             await Navigation.PopAsync();
