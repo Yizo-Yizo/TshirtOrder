@@ -12,11 +12,11 @@ namespace App1
         public App()
         {
             Resources = new ResourceDictionary();
-            Resources.Add("primaryOrange", Color.FromHex("FFA9A9A9"));
+            Resources.Add("primaryGray", Color.FromHex("FFA9A9A9"));
             
 
             var nav = new NavigationPage(new OrderList());
-            nav.BarBackgroundColor = (Color)App.Current.Resources["primaryOrange"];
+            nav.BarBackgroundColor = (Color)App.Current.Resources["primaryGray"];
             nav.BarTextColor = Color.White;
 
             MainPage = nav;
