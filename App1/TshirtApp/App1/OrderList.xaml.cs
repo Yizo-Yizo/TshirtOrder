@@ -66,7 +66,7 @@ namespace App1
             var unPostedItems = await App.Database.GetUnPostedAppItems();
             
 
-            var url = "http://10.0.2.2:5000/App1";
+            var url = "http://10.0.2.2:57886/App1";
             var client = new HttpClient();
 
 
